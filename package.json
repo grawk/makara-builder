@@ -1,0 +1,24 @@
+{
+  "name": "makara-builder",
+  "version": "0.0.1",
+  "description": "Writes locale languagepack files in amd format",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/**.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grawk/makara-builder.git"
+  },
+  "author": "Matt Edelman <medelman@paypal.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/krakenjs/makara-builder/issues"
+  },
+  "homepage": "https://github.com/krakenjs/makara-builder#readme",
+  "dependencies": {
+    "async": "^1.4.2",
+    "glob": "^5.0.14",
+    "path": "^0.11.14"
+  }
+}
