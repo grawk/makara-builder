@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/grawk/makara-builder.git"
+    "url": "git+https://github.com/krakenjs/makara-builder.git"
   },
   "author": "Matt Edelman <medelman@paypal.com>",
   "license": "Apache-2.0",

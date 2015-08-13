@@ -16,7 +16,7 @@ module.exports = function build(appRoot, writer, cb) {
 
             return m[2] + '-' + m[1];
         });
-        async.each(locales, writer, cb);
+        async.each(locales, writer(appRoot), cb);
     });
 
 };
