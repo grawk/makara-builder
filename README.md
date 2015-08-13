@@ -12,6 +12,7 @@ Identify all locales under a given directory and call a passed in "writer" for e
   - `@returns {Function}`
     - `locale {String}` locale string e.g. `DE-fr`
     - `cb {Function}` errback
+- `cb {Function}` called with error or upon successful writing of all locales
     
 The writer function is structured as it is because `makara-builder` calls `async.each` for every locale. Thus, the function it calls 
 needs to have appRoot in its closure scope.
