@@ -1,6 +1,6 @@
 {
   "name": "makara-builder",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Writes locale languagepack files in amd format",
   "main": "index.js",
   "scripts": {
