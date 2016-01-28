@@ -25,6 +25,5 @@ tap.test('check that locale directories are properly identified', function (t) {
             throw err;
         }
         t.equal(locales.length, 0);
-        t.end();
     });
 });

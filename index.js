@@ -3,9 +3,8 @@
 var path = require('path');
 var glob = require('glob');
 var async = require('async');
-var os = require('os');
-var re = (os.platform() === 'win32') ? /(.*)\\(.*)/ : /(.*)\/(.*)/;
 
+var re = new RegExp('(.*)' + path.sep + '(.*)');
 module.exports = function build(appRoot, writer, cb) {
     var localeRoot = path.resolve(appRoot, 'locales');
 
