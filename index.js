@@ -4,7 +4,7 @@ var path = require('path');
 var glob = require('glob');
 var async = require('async');
 
-var re = new RegExp('(.*)' + path.sep + '(.*)');
+var re = new RegExp('(.*)\\' + path.sep + '(.*)');
 module.exports = function build(appRoot, writer, cb) {
     var localeRoot = path.resolve(appRoot, 'locales');
 
