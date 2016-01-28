@@ -1,5 +1,9 @@
 # makara-builder
 
+Lead Maintainer: [Matt Edelman]
+
+[![Build Status]][travis]
+
 Identify all locales under a given directory and call a passed in "writer" for each one
 
 ## API
