@@ -1,5 +1,9 @@
 # makara-builder
 
+Lead Maintainer: [Matt Edelman](https://github.com/grawk)
+
+[![Build Status](https://travis-ci.org/krakenjs/makara-builder.svg?branch=master)](https://travis-ci.org/krakenjs/makara-builder)
+
 Identify all locales under a given directory and call a passed in "writer" for each one
 
 ## API

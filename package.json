@@ -4,7 +4,7 @@
   "description": "Writes locale languagepack files in amd format",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/**.js"
+    "test": "tap test/**.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,8 @@
     "async": "^1.4.2",
     "glob": "^5.0.14",
     "path": "^0.11.14"
+  },
+  "devDependencies": {
+    "tap": "^5.2.0"
   }
 }
