@@ -12,7 +12,7 @@ Identify all locales under a given directory and call a passed in "writer" for e
 
 - `appRoot {String}` filesystem directory where `locales` directory resides. Under that would be structure e.g. `US/en`, `XC/zh`
 - `writer {Function}`
-  - `appRoot {String}` same appRoot as above
+  - `localeRoot {String}` root output directory for the given locale
   - `@returns {Function}`
     - `locale {String}` locale string e.g. `DE-fr`
     - `cb {Function}` errback
