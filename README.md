@@ -20,3 +20,26 @@ Identify all locales under a given directory and call a passed in "writer" for e
     
 The writer function is structured as it is because `makara-builder` calls `async.each` for every locale. Thus, the function it calls 
 needs to have appRoot in its closure scope.
+
+An example of a `writer` function is that found in [makara-amdify](https://github.com/krakenjs/makara-amdify):
+
+```js
+'use strict';
+
+var path = require('path');
+var fs = require('fs');
+
+var wrap = function (out) {
+	return 'define("_languagepack", function () { return ' + JSON.stringify(out) + '; });';
+};
+
+var writer = function (outputRoot, cb) {
+	return function (out) {
+		fs.writeFile(path.resolve(outputRoot, '_languagepack.js'), wrap(out), cb);
+	};
+};
+
+module.exports = function build(root, cb) {
+	require('makara-builder')(root, writer, cb);
+};
+```
