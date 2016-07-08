@@ -17,10 +17,11 @@ Identify all locales under a given directory and call a passed in "writer" for e
     - `locale {String}` locale string e.g. `DE-fr`
     - `cb {Function}` errback
 - `cb {Function}` called with error or upon successful writing of all locales
-    
-The writer function is structured as it is because `makara-builder` calls `async.each` for every locale. Thus, the function it calls 
-needs to have appRoot in its closure scope.
 
+`makara-builder` will use [spundle]() to convert all localized .properties files to JSON objects, 
+create the target directory structure for built languagepack files, and then call the passed in `writer` for each locale.
+
+The `writer` will wrap the JSON output as necessary, and write the languagepack file to `localeRoot`.
 An example of a `writer` function is that found in [makara-amdify](https://github.com/krakenjs/makara-amdify):
 
 ```js
