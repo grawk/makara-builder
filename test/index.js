@@ -22,11 +22,7 @@ var writer = function(root, cb) {
 tap.test('check that locale directories are properly identified', function(t) {
 	t.plan(3);
 	t.type(builder, 'function');
-<<<<<<< HEAD
 	t.equal(builder.length, 3);
-=======
-	t.equal(builder.length, 1);
->>>>>>> 66756c991cc5e07c5a7e9b2245ec7a089aceed80
 	builder({
 		appRoot: appRoot,
 		writer: writer,
