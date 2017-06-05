@@ -39,7 +39,7 @@ var writer = function (outputRoot, cb) {
 };
 
 module.exports = function build(root, cb) {
-	require('makara-builder')({
+    require('makara-builder')({
         appRoot: root,
         writer: writer,
         cb: cb
