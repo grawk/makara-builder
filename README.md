@@ -6,9 +6,7 @@ Lead Maintainer: [Matt Edelman](https://github.com/grawk)
 
 Identify all locales under a given directory and call a passed in "writer" for each one
 
-## API
-
-`module.exports = function build(appRoot, writer, cb) {`
+## Options
 
 - `appRoot {String}` filesystem directory where `locales` directory resides. Under that would be structure e.g. `US/en`, `XC/zh`
 - `writer {Function}`
@@ -18,7 +16,7 @@ Identify all locales under a given directory and call a passed in "writer" for e
     - `cb {Function}` errback
 - `cb {Function}` called with error or upon successful writing of all locales
 
-`makara-builder` will use [spundle]() to convert all localized .properties files to JSON objects, 
+`makara-builder` will use [spundle]() to convert all localized .properties files to JSON objects,
 create the target directory structure for built languagepack files, and then call the passed in `writer` for each locale.
 
 The `writer` will wrap the JSON output as necessary, and write the languagepack file to `localeRoot`.
@@ -41,6 +39,10 @@ var writer = function (outputRoot, cb) {
 };
 
 module.exports = function build(root, cb) {
-	require('makara-builder')(root, writer, cb);
+	require('makara-builder')({
+        appRoot: root,
+        writer: writer,
+        cb: cb
+    });
 };
 ```
