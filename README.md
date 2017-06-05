@@ -9,6 +9,7 @@ Identify all locales under a given directory and call a passed in "writer" for e
 ## Options
 
 - `appRoot {String}` filesystem directory where `locales` directory resides. Under that would be structure e.g. `US/en`, `XC/zh`
+- `buildPath {String}` the directory relative to `appRoot` where compiled files will be placed, default: `.build`
 - `writer {Function}`
   - `localeRoot {String}` root output directory for the given locale
   - `@returns {Function}`
