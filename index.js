@@ -10,9 +10,10 @@ var Options = require('options');
 
 var re = new RegExp('(.*)\\' + path.sep + '(.*)');
 var default_options = {
-    buildPath: '.build',
-    writer: null,
     appRoot: null,
+    buildPath: '.build',
+    localesPath: 'locales',
+    writer: null,
     cb: null
 };
 
@@ -32,11 +33,10 @@ module.exports = function build(appRootOrOptions, writer, cb) {
         appRoot = appRootOrOptions;
     }
 
-    var localeRoot = path.resolve(appRoot, 'locales');
+    var localeRoot = path.resolve(appRoot, options.localesPath);
     var spudBundler = function(locale, cb) {
         var m = /(.*)-(.*)/.exec(locale); // Use a real BCP47 parser.
         var outputRoot = path.resolve(appRoot, path.join(options.buildPath, locale));
-        var localeRoot = path.resolve(appRoot, 'locales');
         mkdirp(outputRoot, iferr(cb, function() {
             spundle(localeRoot, m[2], m[1], iferr(cb, writer(outputRoot, cb)));
         }));
