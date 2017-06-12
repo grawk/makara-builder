@@ -34,17 +34,17 @@ module.exports = function build(appRootOrOptions, writer, cb) {
     }
 
     var localeRoot = path.resolve(appRoot, options.localesPath);
-    var spudBundler = function(locale, cb) {
+    var spudBundler = function (locale, cb) {
         var m = /(.*)-(.*)/.exec(locale); // Use a real BCP47 parser.
         var outputRoot = path.resolve(appRoot, path.join(options.buildPath, locale));
-        mkdirp(outputRoot, iferr(cb, function() {
+        mkdirp(outputRoot, iferr(cb, function () {
             spundle(localeRoot, m[2], m[1], iferr(cb, writer(outputRoot, cb)));
         }));
     };
 
-    glob(path.resolve(localeRoot, '*/*/'), function(err, paths) {
-        if(err) return cb(err);
-        var locales = paths.map(function(p) {
+    glob(path.resolve(localeRoot, '*/*/'), function (err, paths) {
+        if (err) return cb(err);
+        var locales = paths.map(function (p) {
             var m = re.exec(path.relative(localeRoot, p));
             return m[2] + '-' + m[1];
         });
