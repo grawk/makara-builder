@@ -28,8 +28,7 @@ module.exports = function build(appRootOrOptions, writer, cb) {
         appRoot = options.appRoot;
         writer = options.writer;
         cb = options.cb;
-    }
-    else {
+    } else {
         appRoot = appRootOrOptions;
     }
 
