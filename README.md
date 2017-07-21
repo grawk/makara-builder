@@ -4,13 +4,13 @@
 
 Identify all locales under a given directory and call a passed in "writer" for each one
 
-## API
-
-`module.exports = function build(appRoot, writer, cb) {`
+## Options
 
 - `appRoot {String}` filesystem directory where `locales` directory resides. Under that would be structure e.g. `US/en`, `XC/zh`
-- `writer {Function}`
-  - `localeRoot {String}` root output directory for the given locale
+- `buildPath {String}` the directory relative to `appRoot` where compiled files will be placed, default: `.build`
+- `localesPath {String}` the directory relative to `appRoot` where locale files can be found, default: `locales`
+- `writer {Function}` with the following parameters
+  - `localeRoot {String}` directory for the given locale
   - `@returns {Function}`
     - `locale {String}` locale string e.g. `DE-fr`
     - `cb {Function}` errback
@@ -39,6 +39,10 @@ var writer = function (outputRoot, cb) {
 };
 
 module.exports = function build(root, cb) {
-	require('makara-builder')(root, writer, cb);
+    require('makara-builder')({
+        appRoot: root,
+        writer: writer,
+        cb: cb
+    });
 };
 ```

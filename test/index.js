@@ -23,10 +23,12 @@ tap.test('check that locale directories are properly identified', function (t) {
 	t.plan(3);
 	t.type(builder, 'function');
 	t.equal(builder.length, 3);
-	builder(appRoot, writer, function (err) {
-		if (err) {
-			throw err;
+	builder({
+		appRoot: appRoot,
+		writer: writer,
+		cb: function (err) {
+			if (err) throw err;
+			t.equal(locales.length, 0);
 		}
-		t.equal(locales.length, 0);
 	});
 });
